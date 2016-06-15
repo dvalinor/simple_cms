@@ -1,0 +1,56 @@
+Ruby on Rails:
+D.R.Y - Dont Repeat Yourself
+MVC structure - Model, View, Controller
+	Browser -> Controller <-> Model <-> Database
+    	    <- View <-
+
+Model 		- ActiveRecord
+View		- ActionView
+Controller	- ActionController	(ActionPack is controller + view)
+--------------------------------------------------------------------------------------------------------------------------------------------------
+Setup:
+rubyinstaller.org for ruby	- test in console with: ruby -v
+rubyinstaller.org for devkit	- exctract in C:/devkit -> dir to devkit -> in console: ruby dk.rb init
+				-> in console: type config.yml -> Note that it found the correct ruby installation
+				-> in console: ruby dk.rb install
+				- test in console with: gem install json --platform=ruby -> Note 'native extensions'
+				-> in console: ruby -rubygems -e "require 'json'; puts JSON.load('42').inspect"
+				-> note output [42]
+RubyGems.org for RubyGems	- ONLY IF YOU DIDNT GET RUBY GEMS INSTALLED BY DEFAULT. (ruby package manager)
+				- test in console: gem -v
+				- make sure rubygems is up to date, in console: gem update --system
+				- see installed gems: gem list
+rubygems in console for rails	- in console: gem install rails --no-ri --no-rdoc
+				- test in console with: rails -v
+dev.mysql.com for MySQL		- download -> MySQL Community Server -> MSI installer -> Pick big size download
+				-> no thanks just start my download.
+				- install -> Developer Default -> NOTE the installation path -> Go through installation
+				-> Set a root password, other default options are fine, including starting on startup.
+				- test in console: cd / -> : cd "Program Files"/MySql/MySQL Server 5.7/bin 
+				-> : mysql --version
+				- Navigate to MySQL Server 5.7 and locate the Command Line Client, make a shortcut on your desktop
+				- open it, type password -> : SHOW DATABASES; -> to see list of databses -> exit to exit
+MySQL RubyGem			- in console: gem install mysql2
+Sublimetext.com for texteditor	- Download and install -> add a shortcut for easy access
+				- in console: Set-Alias subl 'C:\Program Files\Sublime Text 3\sublime_text.exe'
+				- (the path to sublime_text.exe)
+--------------------------------------------------------------------------------------------------------------------------------------------------
+Project Setups:
+command line			- make and navigate to project folder -> : rails new simple_cms -d mysql 
+				- (Project name: simple_cms, databse of choise: mysql)
+github.com			- new empty repository (give it your project name)
+command line			- navigate to inside project folder: git init -> : git add . -> : git commit - "First commit"
+				-> : git remote add origin https://github.com/dvalinor/simple_cms.git - use own repository url
+				-> : git remove -v - to verify -> : git push origin master
+command line			- navigate to project root -> : ruby bin/bundle install - (to make sure you got the gems installed)
+--------------------------------------------------------------------------------------------------------------------------------------------------
+Optional Setups:
+powershell mapping		- : New-PSDrive –Name “K” –PSProvider FileSystem –Root “\\domain\folder-path” –Persist
+				-> test by : cd k:
+powershell profile		- Look for existing profile: Test-Path $profile -> if true : $profile, to get directory
+				-> if false : New-Item -path $profile -type file -force
+powershell start location	- open profile in txteditor, add: set-location 'K:\ruby', just an example
+powershell subl shortcut	- open profile in txteditor, add: Set-Alias subl 'C:\Program Files\Sublime Text 3\sublime_text.exe'
+--------------------------------------------------------------------------------------------------------------------------------------------------
+Tips:
+bundle exec
